@@ -14,7 +14,6 @@ concurrency:
 
 jobs:
   verify:
-    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
@@ -28,7 +27,6 @@ jobs:
 
   build:
     needs: verify
-    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-24.04
     permissions:
       contents: read
@@ -45,7 +43,6 @@ jobs:
 
   deploy-dev:
     needs: build
-    if: github.ref == 'refs/heads/main'
     permissions:
       contents: read
       id-token: write
