@@ -11,7 +11,7 @@ RUN npm run build-prod
 
 # Runtime stage
 FROM cgr.dev/chainguard/nginx:latest
-COPY nginx/default.conf /etc/nginx/conf.d/default.conf
+COPY nginx/default.conf /etc/nginx/conf.d/nginx.default.conf
 COPY --from=build-stage /app/dist_build/egon /usr/share/nginx/html
 
 EXPOSE 8080

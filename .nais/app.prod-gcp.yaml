@@ -21,6 +21,13 @@ spec:
   readiness:
     path: /isready
     initialDelay: 5
+  filesFrom:
+    - emptyDir:
+        medium: Memory
+      mountPath: /var/lib/nginx/tmp
+    - emptyDir:
+        medium: Memory
+      mountPath: /run
   ingresses:
     - https://egon-io.ansatt.nav.no
   replicas:
